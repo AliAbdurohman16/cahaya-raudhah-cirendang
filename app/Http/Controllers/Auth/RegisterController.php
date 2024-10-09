@@ -3,10 +3,16 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Biodata;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Laravolt\Avatar\Facade as Avatar;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Spatie\Activitylog\Models\Activity;
 
 class RegisterController extends Controller
 {
@@ -63,10 +69,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $avatarImage = Avatar::create($data['name'][0])
+            ->setBackground(sprintf('#%06X', mt_rand(0, 0xFFFFFF))) // Random background color
+            ->setDimension(100, 100) // Avatar size
+            ->getImageObject(); // Generates the image as a GD object
+
+        $avatarName = Str::random(10) . '.png';
+        $avatarPath = 'public/avatars/' . $avatarName;
+
+        Storage::disk('public')->put($avatarPath, $avatarImage->encode('png'));
+
+        $user = User::create([
+            'avatar' => basename($avatarPath),
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-        ]);
+        ])->assignRole('user');
+
+        Biodata::create(['user_id' => $user->id]);
+
+        activity()
+            ->causedBy($user)
+            ->performedOn($user)
+            ->log('Registrasi');
+
+        return $user;
     }
 }

@@ -1,77 +1,96 @@
-@extends('layouts.app')
+@extends('layouts.auth.app')
+
+@section('title', 'Daftar')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+<div class="login-page" style="background-image: url({{ asset('backend') }}/assets/images/mekkah.jpeg);">
+    <div class="login-from-wrap">
+        <form method="POST" action="{{ route('register') }}" class="login-from">
+            @csrf
+            <h1 class="site-title">
+                <a href="#">
+                    <img src="{{ asset('backend') }}/assets/images/cahaya-raudhah.png" alt="logo">
+                </a>
+            </h1>
+            <div class="form-group">
+                <label for="name">Nama</label>
+                <input id="name" type="text" class="validate @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Nama" autofocus>
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
-        </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" type="email" class="validate @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email">
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group" style="position: relative;">
+                <label for="password">Kata Sandi</label>
+                <input id="password" type="password" class="validate @error('password') is-invalid @enderror" name="password" placeholder="Kata Sandi" style="padding-right: 40px;">
+                <span class="toggle-password" onclick="togglePassword()" style="position: absolute; right: 15px; top: 42px; cursor: pointer;">
+                    <i id="eye-icon" class="fa fa-eye"></i>
+                </span>
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group" style="position: relative;">
+                <label for="password-confirmation">Konfirmasi Kata Sandi</label>
+                <input id="password-confirmation" type="password" class="validate" name="password_confirmation" placeholder="Konfirmasi Kata Sandi" style="padding-right: 40px;">
+                <span class="toggle-password" onclick="togglePasswordConfirm()" style="position: absolute; right: 15px; top: 42px; cursor: pointer;">
+                    <i id="eye-icon-confirm" class="fa fa-eye"></i>
+                </span>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit" class="btn button-primary text-dark w-100">Daftar</button>
+            </div>
+            <div class="text-center">
+                <p class="mb-0 already-account">Sudah punya akun? <a href="{{ route('login') }}">Masuk</a></p>
+            </div>
+        </form>
     </div>
 </div>
+@endsection
+
+@section('js')
+<script>
+    function togglePassword() {
+        var passwordField = document.getElementById("password");
+        var eyeIcon = document.getElementById("eye-icon");
+
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            eyeIcon.classList.remove("fa-eye");
+            eyeIcon.classList.add("fa-eye-slash");
+        } else {
+            passwordField.type = "password";
+            eyeIcon.classList.remove("fa-eye-slash");
+            eyeIcon.classList.add("fa-eye");
+        }
+    }
+
+    function togglePasswordConfirm() {
+        var passwordField = document.getElementById("password-confirmation");
+        var eyeIcon = document.getElementById("eye-icon-confirm");
+
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            eyeIcon.classList.remove("fa-eye");
+            eyeIcon.classList.add("fa-eye-slash");
+        } else {
+            passwordField.type = "password";
+            eyeIcon.classList.remove("fa-eye-slash");
+            eyeIcon.classList.add("fa-eye");
+        }
+    }
+</script>
 @endsection
