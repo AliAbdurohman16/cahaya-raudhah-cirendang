@@ -20,12 +20,12 @@ $(document).ready(function(){
 /*----------------------------------------------------*/
     /*  Counters
 /*----------------------------------------------------*/
-    $(window).on('load resize', function() {
-		$('.dashboard-stat-content h5').counterUp({
-	        delay: 100,
-	        time: 800
-	    });
-    });
+    // $(window).on('load resize', function() {
+		// $('.dashboard-stat-content h5').counterUp({
+	  //       delay: 100,
+	  //       time: 800
+	  //   });
+    // });
 
     $(function () {
       $('[data-toggle="tooltip"]').tooltip()

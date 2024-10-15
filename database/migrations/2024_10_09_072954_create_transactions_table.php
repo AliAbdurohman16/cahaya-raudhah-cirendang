@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->uuid('package_id')->index();
             $table->foreign('package_id')->references('id')->on('packages')->onDelete('cascade');
+            $table->string('payment_type')->nullable();
+            $table->string('bank')->nullable();
             $table->decimal('total', 10, 2);
             $table->timestamps();
         });

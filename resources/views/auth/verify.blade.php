@@ -7,7 +7,7 @@
     <div class="login-from-wrap">
         <h1 class="site-title">
             <a href="#">
-                <img src="{{ asset('backend') }}/assets/images/cahaya-raudhah.png" alt="logo">
+                <img src="{{ asset('backend') }}/assets/images/logo.png" alt="logo">
             </a>
         </h1>
         

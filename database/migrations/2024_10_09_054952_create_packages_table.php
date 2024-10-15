@@ -15,8 +15,10 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('airline');
             $table->string('name');
+            $table->string('slug');
             $table->date('date');
             $table->string('day');
+            $table->string('passenger');
             $table->decimal('price', 10, 2);
             $table->string('status')->default('aktif');
             $table->timestamps();

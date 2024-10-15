@@ -75,7 +75,7 @@ class RegisterController extends Controller
             ->getImageObject(); // Generates the image as a GD object
 
         $avatarName = Str::random(10) . '.png';
-        $avatarPath = 'public/avatars/' . $avatarName;
+        $avatarPath = 'avatars/' . $avatarName;
 
         Storage::disk('public')->put($avatarPath, $avatarImage->encode('png'));
 

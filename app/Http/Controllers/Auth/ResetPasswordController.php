@@ -22,6 +22,8 @@ class ResetPasswordController extends Controller
 
     use ResetsPasswords;
 
+    protected $redirectTo = '/dashboard';
+
     /**
      * Where to redirect users after resetting their password.
      *

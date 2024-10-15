@@ -4,6 +4,7 @@
       <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="csrf-token" content="{{ csrf_token() }}">
       <!-- favicon -->
       <link rel="icon" type="image/png" href="{{ asset('backend') }}/assets/images/logo-cr-bayang.png">
       <!-- Bootstrap CSS -->
