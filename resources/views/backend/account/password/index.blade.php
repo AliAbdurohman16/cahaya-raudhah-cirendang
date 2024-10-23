@@ -31,8 +31,8 @@
                         </div>                        
                         <div class="col-sm-12">
                             <div class="form-group" style="position: relative;">
-                                <label for="password">Kata Sandi</label>
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Kata Sandi" style="padding-right: 40px;">
+                                <label for="password">Kata Sandi Baru</label>
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Kata Sandi Baru" style="padding-right: 40px;">
                                 <span class="toggle-password" onclick="togglePassword()" style="position: absolute; right: 15px; top: 44px; cursor: pointer;">
                                     <i id="eye-icon" class="fa fa-eye"></i>
                                 </span>
@@ -45,8 +45,8 @@
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group" style="position: relative;">
-                                <label for="password-confirmation">Konfirmasi Kata Sandi</label>
-                                <input id="password-confirmation" type="password" class="form-control" name="password_confirmation" placeholder="Konfirmasi Kata Sandi" style="padding-right: 40px;">
+                                <label for="password-confirmation">Konfirmasi Kata Sandi Baru</label>
+                                <input id="password-confirmation" type="password" class="form-control" name="password_confirmation" placeholder="Konfirmasi Kata Sandi Baru" style="padding-right: 40px;">
                                 <span class="toggle-password" onclick="togglePasswordConfirm()" style="position: absolute; right: 15px; top: 44px; cursor: pointer;">
                                     <i id="eye-icon-confirm" class="fa fa-eye"></i>
                                 </span>
