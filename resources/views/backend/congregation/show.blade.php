@@ -15,7 +15,7 @@
                                 <tr>
                                     <td class="font-weight-bold">NIK</td>
                                     <td width="2%">:</td>
-                                    <td>{{ $biodata->name }}</td>
+                                    <td>{{ $biodata->nik }}</td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Nama Lengkap</td>
