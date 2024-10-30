@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $data['packages'] = Package::where('status', 'aktif')->orderBy('created_at', 'desc')->limit(6)->get();
+        $data['packages'] = Package::where('status', 'aktif')->orderBy('date', 'desc')->limit(6)->get();
 
         return view('frontend.index', $data);
     }

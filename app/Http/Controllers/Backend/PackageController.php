@@ -13,7 +13,7 @@ class PackageController extends Controller
 {
     public function index()
     {
-        $data['packages'] = Package::orderBy('created_at', 'desc')->get();
+        $data['packages'] = Package::orderBy('date', 'desc')->get();
 
         return view('backend.package.index', $data);
     }
