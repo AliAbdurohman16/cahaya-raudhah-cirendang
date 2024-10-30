@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="csrf-token" content="{{ csrf_token() }}">
       <!-- favicon -->
-      <link rel="icon" type="image/png" href="{{ asset('backend') }}/assets/images/logo-cr-bayang.png">
+      <link rel="icon" type="image/png" href="{{ asset('frontend') }}/assets/images/logo-kuning.jpeg">
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="{{ asset('backend') }}/assets/css/bootstrap.min.css" media="all">
       <!-- Fonts Awesome CSS -->
