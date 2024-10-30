@@ -12,7 +12,7 @@ class PackageController extends Controller
 {
     public function index()
     {
-        $data['packages'] = Package::where('status', 'aktif')->orderBy('created_at', 'desc')->paginate(12);
+        $data['packages'] = Package::where('status', 'aktif')->orderBy('date', 'desc')->paginate(12);
 
         return view('frontend.package', $data);
     }
@@ -30,6 +30,7 @@ class PackageController extends Controller
                                     ->orWhere('day', 'LIKE', "%$search%")
                                     ->orWhereRaw('CAST(price AS CHAR) LIKE ?', ["%$normalizedSearch%"]);
                             })
+                            ->orderBy('date', 'desc')
                             ->paginate(21);
 
         $data = [
