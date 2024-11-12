@@ -41,9 +41,6 @@
                                     </tr>
                                 @endif
                             @empty
-                                <tr>
-                                    <td colspan="4">Tidak ada aktivitas.</td>
-                                </tr>
                             @endforelse 
                         </tbody>
                     </table>

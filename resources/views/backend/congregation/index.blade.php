@@ -17,7 +17,7 @@
                         <th>No</th>
                         <th>Nama Jemaah</th>
                         <th>Maskapai</th>
-                        <th>Nama</th>
+                        <th>Nama Paket</th>
                         <th>Tanggal Berangkat</th>
                         <th>Hari</th>
                         <th colspan="2" class="text-center">Hotel</th>
