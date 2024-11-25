@@ -141,7 +141,7 @@ class PackageController extends Controller
             ]
         ]);
 
-        return redirect('packages')->with('message', 'Berhasil ditambahkan!');
+        return redirect('packages')->with('message', 'Berhasil diperbarui!');
     }
 
     public function destroy(Package $package)

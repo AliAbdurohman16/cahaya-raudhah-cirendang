@@ -17,7 +17,7 @@ class PasswordController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'password_old' => 'required',
+            'password_old' => 'required|min:8',
             'password' => 'required|min:8|confirmed'
         ]);
 
