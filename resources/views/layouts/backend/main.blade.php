@@ -16,7 +16,7 @@
       <!-- Custom CSS -->
       <link rel="stylesheet" type="text/css" href="{{ asset('backend') }}/assets/css/style.css">
       @yield('css')
-      <title>@yield('title') | PT Cahaya Raudhah Cirendang </title>
+      <title>@yield('title') | Cahaya Raudhah Cirendang </title>
 </head>
 <body>
 
