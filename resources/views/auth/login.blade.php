@@ -12,26 +12,20 @@
                     <img src="{{ asset('backend') }}/assets/images/logo.png" alt="logo">
                 </a>
             </h1>
+            @if ($errors->has('email') || $errors->has('password'))
+                <div class="alert alert-danger">Email atau kata sandi anda salah!</div>
+            @endif
             <div class="form-group">
                 <label for="email">Email</label>
-                <input id="email" type="email" class="validate @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email" autofocus>
-                @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                <input id="email" type="email" class="validate" name="email" value="{{ old('email') }}" placeholder="Email" autofocus>
+                
             </div>
             <div class="form-group" style="position: relative;">
                 <label for="password">Kata Sandi</label>
-                <input id="password" type="password" class="validate @error('password') is-invalid @enderror" name="password" placeholder="Kata Sandi" style="padding-right: 40px;">
+                <input id="password" type="password" class="validate" name="password" placeholder="Kata Sandi" style="padding-right: 40px;">
                 <span class="toggle-password" onclick="togglePassword()" style="position: absolute; right: 15px; top: 42px; cursor: pointer;">
                     <i id="eye-icon" class="fa fa-eye"></i>
                 </span>
-                @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
             </div>
             
             <div class="form-group">

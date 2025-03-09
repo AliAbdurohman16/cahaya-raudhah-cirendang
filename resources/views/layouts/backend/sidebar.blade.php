@@ -15,6 +15,8 @@
             <li class="{{ request()->is('congregations') ? 'active-menu' : '' }}"><a href="{{ route('congregations') }}"><i class="fas fa-users"></i> Data Jemaah</a></li> 
             <li class="{{ request()->is('transactions') ? 'active-menu' : '' }}"><a href="{{ route('transactions') }}"><i class="fas fa-money-bill-alt"></i>Transaksi</a></li>
             <li class="{{ request()->is('report') ? 'active-menu' : '' }}"><a href="{{ route('report.index') }}"><i class="fas fa-file-alt"></i>Laporan</a></li>
+            @endif
+            @if (Auth::user()->hasRole('admin'))
             <li class="{{ request()->is('users*') ? 'active-menu' : '' }}"><a href="{{ route('users.index') }}"><i class="fas fa-user"></i>Data Pengguna</a></li>
             @endif
             @if (Auth::user()->hasRole('owner'))

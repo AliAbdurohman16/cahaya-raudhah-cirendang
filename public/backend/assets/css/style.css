@@ -458,11 +458,21 @@ a:visited {
   color: #ffffff;
 }
 
+.text-right {
+  text-align: right;
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+
 /* -----------------------------------
   button css
   ------------------------------------- */
 .outline-primary,
-.outline-round, .button-primary,
+.outline-round, 
+.button-primary,
+.button-secondary,
 .button-round {
   font-size: 16px;
   font-weight: 00;
@@ -470,13 +480,29 @@ a:visited {
   padding: 15px 30px;
 }
 @media screen and (max-width: 575px) {
-  .outline-primary,
-.outline-round, .button-primary,
+.outline-primary,
+.outline-round, 
+.button-primary,
+.button-secondary,
 .button-round {
     font-size: 14px;
     padding: 10px 20px;
   }
 }
+
+.button-export,
+.button-round {
+  font-size: 14px;
+  padding: 8px 16px;
+}
+
+@media screen and (max-width: 575px) {
+  .button-export,
+  .button-round {
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+  }
 
 input[type=button],
 input[type=reset],
@@ -506,7 +532,7 @@ input[type=submit]:focus {
 .button-round {
   background-color: #ffe306;
   font-weight: 700;
-  color: #ffffff;
+  color: #292929;
   display: inline-block;
   position: relative;
   -webkit-transition: background-color 0.3s;
@@ -520,13 +546,56 @@ input[type=submit]:focus {
 .button-round:focus,
 .button-round:active {
   background-color: #fecd1a;
+  color: #292929;
+}
+
+.button-secondary,
+.button-round {
+  background-color: #dedede;
+  font-weight: 700;
+  color: #292929;
+  display: inline-block;
+  position: relative;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -ms-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+.button-secondary:hover, .button-secondary:focus, .button-secondary:active,
+.button-round:hover,
+.button-round:focus,
+.button-round:active {
+  background-color: #d4d4d4;
+  color: #292929;
+}
+
+.button-export,
+.button-round {
+  background-color: #19b611;
+  font-weight: 700;
+  color: #ffffff;
+  display: inline-block;
+  position: relative;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -ms-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+.button-export:hover, .button-export:focus, .button-export:active,
+.button-round:hover,
+.button-round:focus,
+.button-round:active {
+  background-color: #148c0e;
   color: #ffffff;
 }
 
 .outline-primary,
 .outline-round {
-  border: 2px solid #292929;
-  color: #292929;
+  border: 2px solid #ffe306 !important;
+  font-weight: 700;
+  color: #fecd1a;
   display: inline-block;
   position: relative;
   padding: 13px 30px;
@@ -546,9 +615,9 @@ input[type=submit]:focus {
 .outline-round:hover,
 .outline-round:focus,
 .outline-round:active {
-  background-color: #2C75BA;
-  border-color: #2C75BA;
-  color: #ffffff;
+  background-color: #ffe306;
+  border-color: #ffe306;
+  color: #292929;
 }
 
 .button-round,

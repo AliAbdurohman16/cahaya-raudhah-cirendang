@@ -20,12 +20,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('employees', Backend\EmployeeController::class);
     });
 
+    Route::group(['middleware' => ['user-access:admin']], function () {
+        Route::get('log-activities', [Backend\LogActivityController::class, 'index'])->name('log-activities');
+        Route::resource('users', Backend\UserController::class);
+    });
+
     Route::group(['middleware' => ['user-access:owner,admin']], function () {
         Route::resources([
             'packages' => Backend\PackageController::class,
-            'users' => Backend\UserController::class,
             'report' => Backend\ReportController::class,
         ]);
+
+        Route::post('report/export', [Backend\ReportController::class, 'export'])->name('report.export');
         
         Route::get('transactions', [Backend\TransactionController::class, 'index'])->name('transactions');
         Route::get('congregations', [Backend\CongregationController::class, 'index'])->name('congregations');

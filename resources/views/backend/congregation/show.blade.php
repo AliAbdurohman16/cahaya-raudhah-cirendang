@@ -10,7 +10,7 @@
             <div class="dashboard-box">
                 <div class="custom-field-wrap">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <table class="table table-borderless m-3">
                                 <tr>
                                     <td class="font-weight-bold">NIK</td>
@@ -64,46 +64,71 @@
                                 </tr>
                             </table>
                         </div>
-                        <div class="col-md-6">
-                            <table class="table table-borderless m-3">
-                                <tr>
-                                    <td class="font-weight-bold">Foto Kartu Keluarga</td>
-                                    <td width="2%">:</td>
-                                    <td>
-                                        <img src="{{ asset('storage/kk/' . $biodata->kk) }}" width="40%" alt="kk">
+                        <div class="col-md-12">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="container">
+                                            <div class="form-group">
+                                                <label class="font-weight-bold">Foto Kartu Keluarga</label>
+                                                <img src="{{ asset('storage/kk/' . $biodata->kk) }}" width="40%" alt="kk">
+                                                <br>
+                                                <a href="{{ asset('storage/kk/' . $biodata->kk) }}" class="btn btn-primary text-white w-40 btn-sm mt-2" download>Unduh</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="container">
+                                            <div class="form-group">
+                                                <label class="font-weight-bold">Foto KTP</label>
+                                                <img src="{{ asset('storage/ktp/' . $biodata->ktp) }}" width="40%" alt="ktp">
+                                                <br>
+                                                <a href="{{ asset('storage/ktp/' . $biodata->ktp) }}" class="btn btn-primary text-white w-40 btn-sm mt-2" download>Unduh</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="container">
+                                            <div class="form-group">
+                                                <label class="font-weight-bold">Pas Foto</label>
+                                                <img src="{{ asset('storage/passport_photo/' . $biodata->passport_photo) }}" width="40%" alt="passport_photo">
                                         <br>
-                                        <a href="{{ asset('storage/kk/' . $biodata->kk) }}" class="btn btn-primary text-white w-40 btn-sm mt-2" download>Unduh</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="font-weight-bold">Foto KTP</td>
-                                    <td width="2%">:</td>
-                                    <td>
-                                        <img src="{{ asset('storage/ktp/' . $biodata->ktp) }}" width="40%" alt="ktp">
-                                        <br>
-                                        <a href="{{ asset('storage/ktp/' . $biodata->ktp) }}" class="btn btn-primary text-white w-40 btn-sm mt-2" download>Unduh</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="font-weight-bold">Foto Sertifikat Vaksin</td>
-                                    <td width="2%">:</td>
-                                    <td>
-                                        <img src="{{ asset('storage/vaccine_certificates/' . $biodata->vaccine_certificate) }}" width="40%" alt="vaccine_certificate">
+                                        <a href="{{ asset('storage/passport_photo/' . $biodata->passport_photo) }}" class="btn btn-primary text-white w-40 btn-sm mt-2" download>Unduh</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="container">
+                                            <div class="form-group">
+                                                <label class="font-weight-bold">Foto Sertifikat Vaksin</label>
+                                                <img src="{{ asset('storage/vaccine_certificates/' . $biodata->vaccine_certificate) }}" width="40%" alt="vaccine_certificate">
                                         <br>
                                         <a href="{{ asset('storage/vaccine_certificates/' . $biodata->vaccine_certificate) }}" class="btn btn-primary text-white w-40 btn-sm mt-2" download>Unduh</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="font-weight-bold">Foto Paspor</td>
-                                    <td width="2%">:</td>
-                                    <td>
-                                        <img src="{{ asset('storage/passports/' . $biodata->passport) }}" width="40%" alt="passport">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="container">
+                                            <div class="form-group">
+                                                <label class="font-weight-bold">Foto Surat Keterangan Sehat</label>
+                                                <img src="{{ asset('storage/health_certificates/' . $biodata->health_certificate) }}" width="40%" alt="health_certificate">
+                                        <br>
+                                        <a href="{{ asset('storage/health_certificates/' . $biodata->health_certificate) }}" class="btn btn-primary text-white w-40 btn-sm mt-2" download>Unduh</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="container">
+                                            <div class="form-group">
+                                                <label class="font-weight-bold">Foto Paspor</label>
+                                                <img src="{{ asset('storage/passports/' . $biodata->passport) }}" width="40%" alt="passport">
                                         <br>
                                         <a href="{{ asset('storage/passports/' . $biodata->passport) }}" class="btn btn-primary text-white w-40 btn-sm mt-2" download>Unduh</a>
-                                    </td>
-                                </tr>
-                            </table>
-                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
