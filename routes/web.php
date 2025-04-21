@@ -21,7 +21,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     Route::group(['middleware' => ['user-access:admin']], function () {
-        Route::get('log-activities', [Backend\LogActivityController::class, 'index'])->name('log-activities');
         Route::resource('users', Backend\UserController::class);
     });
 
