@@ -39,15 +39,31 @@ class UserSeeder extends Seeder
         ])->assignRole('admin');
 
         // user
-        $userAvatar = $this->createAvatar('User');
+        $users = [
+            ['name' => 'Andi Saputra',      'email' => 'andi.saputra@example.com'],
+            ['name' => 'Rina Marlina',      'email' => 'rina.marlina@example.com'],
+            ['name' => 'Dedi Pratama',      'email' => 'dedi.pratama@example.com'],
+            ['name' => 'Siti Nurhaliza',    'email' => 'siti.nurhaliza@example.com'],
+            ['name' => 'Agus Santoso',      'email' => 'agus.santoso@example.com'],
+            ['name' => 'Maria Fransiska',   'email' => 'maria.fransiska@example.com'],
+            ['name' => 'Ridwan Kurniawan',  'email' => 'ridwan.kurniawan@example.com'],
+            ['name' => 'Dewi Sartika',      'email' => 'dewi.sartika@example.com'],
+            ['name' => 'Fajar Nugroho',     'email' => 'fajar.nugroho@example.com'],
+            ['name' => 'Lilis Suryani',     'email' => 'lilis.suryani@example.com'],
+        ];
+        
+        foreach ($users as $user) {
+            $firstName   = explode(' ', $user['name'])[0];
+            $userAvatar = $this->createAvatar($firstName);
 
-        $user = User::create([
-            'avatar' => $userAvatar,
-            'name' => 'User',
-            'email' => 'user@gmail.com',
-            'email_verified_at' => now(),
-            'password' => bcrypt('1234567890'),
-        ])->assignRole('user');
+            User::create([
+                'avatar'             => $userAvatar,
+                'name'               => $user['name'],
+                'email'              => $user['email'],
+                'email_verified_at'  => now(),
+                'password'           => bcrypt('1234567890'),
+            ])->assignRole('user');
+        }        
     }
 
     protected function createAvatar($name)
