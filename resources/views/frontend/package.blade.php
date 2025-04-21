@@ -49,7 +49,7 @@
                             </div>
                             <div class="package-content">
                                 <h3>
-                                    <a href="{{ route('cart', $package->slug) }}">{{ $package->name }}</a>
+                                    <a href="{{ route('cart', $package->id) }}">{{ $package->name }}</a>
                                 </h3>
                                 @foreach ($package->Hotels->sortBy('position') as $index => $hotel)
                                 Hotel {{ $hotel->position }}

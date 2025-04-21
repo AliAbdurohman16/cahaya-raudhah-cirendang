@@ -6,7 +6,7 @@ use App\Http\Controllers\Frontend;
 Route::get('/', [Frontend\HomeController::class, 'index'])->name('/');
 Route::get('search', [Frontend\PackageController::class, 'search'])->name('search');
 Route::get('package', [Frontend\PackageController::class, 'index'])->name('package');
-Route::get('package/{package:slug}', [Frontend\PackageController::class, 'cart'])->name('cart');
+Route::get('package/{package}', [Frontend\PackageController::class, 'cart'])->name('cart');
 Route::post('package/pay', [Frontend\PackageController::class, 'pay'])->name('pay');
 Route::post('package/pay/success', [Frontend\PackageController::class, 'paySuccess'])->name('paySuccess');
 
