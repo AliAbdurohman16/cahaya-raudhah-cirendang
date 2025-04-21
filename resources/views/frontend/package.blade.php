@@ -66,7 +66,7 @@
                                 </div>
                                 @endforeach
                                 <div class="btn-wrap">
-                                    <a href="{{ route('cart', $package->slug) }}" class="button-text width-6">Beli Paket<i class="fas fa-arrow-right"></i></a>
+                                    <a href="{{ route('cart', $package->id) }}" class="button-text width-6">Beli Paket<i class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
