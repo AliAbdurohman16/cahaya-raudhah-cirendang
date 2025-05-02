@@ -24,11 +24,11 @@ class DocumentController extends Controller
         $document = Document::where('user_id', Auth::id())->first();
 
         $data = $request->validate([
-            'kk' => 'mimes:jpg,png,jpeg|image',
-            'ktp' => 'mimes:jpg,png,jpeg|image',
-            'vaccine_certificate' => 'mimes:jpg,png,jpeg|image',
-            'passport' => 'mimes:jpg,png,jpeg|image',
-        ]);
+            'kk' => 'mimes:jpg,png,jpeg|image|max:10240',
+            'ktp' => 'mimes:jpg,png,jpeg|image|max:10240',
+            'vaccine_certificate' => 'mimes:jpg,png,jpeg|image|max:10240',
+            'passport' => 'mimes:jpg,png,jpeg|image|max:10240',
+        ]);        
 
         // Proses kompresi dan penyimpanan file
         if ($request->hasFile('kk')) {
