@@ -22,14 +22,13 @@
             @if (Auth::user()->hasRole('owner'))
             <li class="{{ request()->is('employees*') ? 'active-menu' : '' }}"><a href="{{ route('employees.index') }}"><i class="fas fa-user-tie"></i>Data Pegawai</a></li>
             @endif
-            <li class="{{ request()->is('biodata*') ? 'active-menu' : '' }} || {{ request()->is('profile*') ? 'active-menu' : '' }} || {{ request()->is('ratings.classes*') ? 'active-menu' : '' }}">
-                <a><i class="fas fa-user-cog"></i>{{ Auth::user()->hasRole('user') ? 'Biodata Dan Akun' : 'Akun' }}</a>
+            @if (Auth::user()->hasRole('user'))
+            <li class="{{ request()->is('biodata*') ? 'active-menu' : '' }}"><a href="{{ route('biodata.index') }}"><i class="fas fa-user-tie"></i>Biodata</a></li>
+            <li class="{{ request()->is('document*') ? 'active-menu' : '' }}"><a href="{{ route('document.index') }}"><i class="fas fa-file"></i>Dokumen</a></li>
+            @endif
+            <li class="{{ request()->is('profile*') ? 'active-menu' : '' }} || {{ request()->is('ratings.classes*') ? 'active-menu' : '' }}">
+                <a><i class="fas fa-user-cog"></i>Akun</a>
                 <ul>
-                    @if (Auth::user()->hasRole('user'))
-                    <li>
-                        <a href="{{ route('biodata.index') }}">Biodata</a>
-                    </li>
-                    @endif
                     <li>
                         <a href="{{ route('profile.index') }}">Profil</a>
                     </li>

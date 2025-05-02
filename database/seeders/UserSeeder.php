@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Biodata;
+use App\Models\Document;
 use Laravolt\Avatar\Facade as Avatar;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -18,26 +19,26 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         // owner
-        // $ownerAvatar = $this->createAvatar('Owner');
+        $ownerAvatar = $this->createAvatar('Owner');
         
-        // $owner = User::create([
-        //     'avatar' => $ownerAvatar,
-        //     'name' => 'Owner',
-        //     'email' => 'owner@gmail.com',
-        //     'email_verified_at' => now(),
-        //     'password' => bcrypt('1234567890'),
-        // ])->assignRole('owner');
+        $owner = User::create([
+            'avatar' => $ownerAvatar,
+            'name' => 'Owner',
+            'email' => 'owner@gmail.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('1234567890'),
+        ])->assignRole('owner');
 
-        // // admin
-        // $adminAvatar = $this->createAvatar('Admin');
+        // admin
+        $adminAvatar = $this->createAvatar('Admin');
 
-        // $admin = User::create([
-        //     'avatar' => $adminAvatar,
-        //     'name' => 'Admin',
-        //     'email' => 'admin@gmail.com',
-        //     'email_verified_at' => now(),
-        //     'password' => bcrypt('1234567890'),
-        // ])->assignRole('admin');
+        $admin = User::create([
+            'avatar' => $adminAvatar,
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('1234567890'),
+        ])->assignRole('admin');
 
         // user
         $users = [
@@ -195,6 +196,11 @@ class UserSeeder extends Seeder
                 'phone_number'      => $biodata['phone_number'],
                 'work'              => $biodata['work'],
                 'highest_education' => $biodata['highest_education'],
+            ]);
+
+            // Insert to Document
+            Document::create([
+                'user_id'           => $createdUser->id,
             ]);
         }
     }

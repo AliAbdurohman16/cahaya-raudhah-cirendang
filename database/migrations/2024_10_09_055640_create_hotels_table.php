@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('city');
             $table->string('star', 1);
+            $table->string('position', 1);
             $table->timestamps();
         });
     }

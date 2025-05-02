@@ -99,6 +99,11 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Biodata::class, 'user_id');
     }
+    
+    public function Documents()
+    {
+        return $this->hasMany(Document::class, 'user_id');
+    }
 
     public function Transactions()
     {

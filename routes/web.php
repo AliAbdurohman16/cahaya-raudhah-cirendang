@@ -35,10 +35,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('transactions', [Backend\TransactionController::class, 'index'])->name('transactions');
         Route::get('congregations', [Backend\CongregationController::class, 'index'])->name('congregations');
         Route::get('congregations/{id}', [Backend\CongregationController::class, 'show'])->name('congregations.show');
+        Route::put('congregations/validation/kk/{id}', [Backend\CongregationController::class, 'validationKK'])->name('congregations.validation.kk');
+        Route::put('congregations/validation/ktp/{id}', [Backend\CongregationController::class, 'validationKTP'])->name('congregations.validation.ktp');
+        Route::put('congregations/validation/passport-photo/{id}', [Backend\CongregationController::class, 'validationPassportPhoto'])->name('congregations.validation.passport-photo');
+        Route::put('congregations/validation/vaccine-certificate/{id}', [Backend\CongregationController::class, 'validationVaccineCertificate'])->name('congregations.validation.vaccine-certificate');
+        Route::put('congregations/validation/health-certificate/{id}', [Backend\CongregationController::class, 'validationHealthCertificate'])->name('congregations.validation.health-certificate');
+        Route::put('congregations/validation/passport/{id}', [Backend\CongregationController::class, 'validationPassport'])->name('congregations.validation.passport');
     });
 
     Route::group(['middleware' => ['user-access:user']], function () {
-        Route::resource('biodata', Backend\Account\BiodataController::class);
+        Route::resource('biodata', Backend\BiodataController::class);
+        Route::resource('document', Backend\DocumentController::class);
     });
 
     Route::resources([
