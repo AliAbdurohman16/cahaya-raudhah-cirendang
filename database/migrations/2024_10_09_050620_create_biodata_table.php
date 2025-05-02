@@ -25,10 +25,6 @@ return new class extends Migration
             $table->string('phone_number')->nullable();
             $table->string('work')->nullable();
             $table->string('highest_education')->nullable();
-            $table->string('kk')->nullable();
-            $table->string('ktp')->nullable();
-            $table->string('vaccine_certificate')->nullable();
-            $table->string('passport')->nullable();
             $table->timestamps();
         });
     }
