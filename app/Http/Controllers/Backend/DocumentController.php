@@ -216,11 +216,6 @@ class DocumentController extends Controller
         ];
     }
 
-    public function beforeCompression($imageFile)
-    {
-        return $this->formatSize($imageFile->getSize());
-    }
-
     public function formatSize($sizeBytes)
     {
         $sizeKB = $sizeBytes / 1024; // Konversi ke KB
