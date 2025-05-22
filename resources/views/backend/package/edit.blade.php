@@ -36,7 +36,7 @@
                             <div class="col-sm-4">
                                 <label>Nama Paket</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $package->name }}" placeholder="Nama Paket">
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $package->name }}" placeholder="Nama Paket" value="{{ old('name', $package->name) }}">
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -47,7 +47,7 @@
                             <div class="col-sm-4">
                                 <label>Maksimal Penumpang</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control @error('passenger') is-invalid @enderror" name="passenger" value="{{ $package->passenger }}" placeholder="Maksimal Penumpang">
+                                    <input type="text" class="form-control @error('passenger') is-invalid @enderror" name="passenger" value="{{ $package->passenger }}" placeholder="Maksimal Penumpang" value="{{ old('passenger', $package->passenger) }}">
                                     @error('passenger')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -58,7 +58,7 @@
                             <div class="col-sm-4">
                                 <label>Tanggal</label>
                                 <div class="form-group">
-                                    <input type="date" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ $package->date }}" placeholder="Tanggal">
+                                    <input type="date" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ $package->date }}" placeholder="Tanggal" value="{{ old('date', $package->date) }}">
                                     @error('date')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -69,7 +69,7 @@
                             <div class="col-sm-4">
                                 <label>Hari</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control @error('day') is-invalid @enderror" name="day" value="{{ $package->day }}" placeholder="Hari">
+                                    <input type="text" class="form-control @error('day') is-invalid @enderror" name="day" value="{{ $package->day }}" placeholder="Hari" value="{{ old('day', $package->day) }}">
                                     <small>Contoh: 9 Hari</small>
                                     @error('day')
                                         <span class="invalid-feedback" role="alert">
@@ -81,7 +81,7 @@
                             <div class="col-sm-4">
                                 <label>Harga</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control @error('price') is-invalid @enderror" name="price" id="price" value="{{ intval($package->price) }}" placeholder="Harga">
+                                    <input type="text" class="form-control @error('price') is-invalid @enderror" name="price" id="price" value="{{ intval($package->price) }}" placeholder="Harga" value="{{ old('price', $package->price) }}">
                                     @error('price')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -156,7 +156,7 @@
                                             <i class="fa fa-star" onclick="hotel1(5)"></i>
                                         </div>
                                         
-                                        <input type="hidden" class="form-control @error('star_1') is-invalid @enderror" name="star_1" id="hotel1">
+                                        <input type="hidden" class="form-control @error('star_1') is-invalid @enderror" name="star_1" id="hotel1" value="{{ old('star_1') }}">
                                         @error('star_1')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -167,7 +167,7 @@
                                 <div class="col-sm-5">
                                     <div class="form-group">
                                         <label>Nama Hotel</label>
-                                        <input type="text" class="form-control @error('name_1') is-invalid @enderror" name="name_1" placeholder="Nama Hotel">
+                                        <input type="text" class="form-control @error('name_1') is-invalid @enderror" name="name_1" placeholder="Nama Hotel" value="{{ old('name_1') }}">
                                         @error('name_1')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -178,7 +178,7 @@
                                 <div class="col-sm-5">
                                     <div class="form-group">
                                         <label>Kota</label>
-                                        <input type="text" class="form-control @error('city_1') is-invalid @enderror" name="city_1" placeholder="Kota">
+                                        <input type="text" class="form-control @error('city_1') is-invalid @enderror" name="city_1" placeholder="Kota" value="{{ old('city_1') }}">
                                         @error('city_1')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -201,7 +201,7 @@
                                             <i class="fa fa-star" onclick="hotel2(4)"></i>
                                             <i class="fa fa-star" onclick="hotel2(5)"></i>
                                         </div>
-                                        <input type="hidden" class="form-control @error('star_2') is-invalid @enderror" name="star_2" id="hotel2">
+                                        <input type="hidden" class="form-control @error('star_2') is-invalid @enderror" name="star_2" id="hotel2" value="{{ old('star_2') }}">
                                         @error('star_2')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -212,7 +212,7 @@
                                 <div class="col-sm-5">
                                     <div class="form-group">
                                         <label>Nama Hotel</label>
-                                        <input type="text" class="form-control @error('name_2') is-invalid @enderror" name="name_2" placeholder="Nama Hotel">
+                                        <input type="text" class="form-control @error('name_2') is-invalid @enderror" name="name_2" placeholder="Nama Hotel" value="{{ old('name_2') }}">
                                         @error('name_2')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -223,7 +223,7 @@
                                 <div class="col-sm-5">
                                     <div class="form-group">
                                         <label>Kota</label>
-                                        <input type="text" class="form-control @error('city_2') is-invalid @enderror" name="city_2" placeholder="Kota">
+                                        <input type="text" class="form-control @error('city_2') is-invalid @enderror" name="city_2" placeholder="Kota" value="{{ old('city_2') }}">
                                         @error('city_2')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>

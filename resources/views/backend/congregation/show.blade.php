@@ -76,7 +76,11 @@
                                         <div class="container">
                                             <div class="form-group">
                                                 <label class="font-weight-bold">Foto Kartu Keluarga</label>
-                                                <img src="{{ asset('storage/kk/' . $biodata->User->Documents->first()->kk) }}" width="40%" alt="kk">
+                                                @if ($biodata->User->Documents->first()->kk == null)
+                                                    <small class="text-danger">Foto Kartu Keluarga belum di unggah!</small>
+                                                @else
+                                                    <img src="{{ asset('storage/kk/' . $biodata->User->Documents->first()->kk) }}" width="40%" alt="kk">
+                                                @endif
                                                 <br>
                                                 <a href="{{ asset('storage/kk/' . $biodata->User->Documents->first()->kk) }}" class="btn btn-primary text-white w-40 btn-sm mt-2" download>Unduh</a>
                                                 <br>
@@ -95,7 +99,11 @@
                                         <div class="container">
                                             <div class="form-group">
                                                 <label class="font-weight-bold">Foto KTP</label>
-                                                <img src="{{ asset('storage/ktp/' . $biodata->User->Documents->first()->ktp) }}" width="40%" alt="ktp">
+                                                @if ($biodata->User->Documents->first()->ktp == null)
+                                                    <small class="text-danger">Foto KTP belum di unggah!</small>
+                                                @else
+                                                    <img src="{{ asset('storage/ktp/' . $biodata->User->Documents->first()->ktp) }}" width="40%" alt="ktp">
+                                                @endif
                                                 <br>
                                                 <a href="{{ asset('storage/ktp/' . $biodata->User->Documents->first()->ktp) }}" class="btn btn-primary text-white w-40 btn-sm mt-2" download>Unduh</a>
                                                 <br>
@@ -114,7 +122,11 @@
                                         <div class="container">
                                             <div class="form-group">
                                                 <label class="font-weight-bold">Pas Foto</label>
-                                                <img src="{{ asset('storage/passport_photo/' . $biodata->User->Documents->first()->passport_photo) }}" width="40%" alt="passport_photo">
+                                                @if ($biodata->User->Documents->first()->passport_photo == null)
+                                                    <small class="text-danger">Pas Foto belum di unggah!</small>
+                                                @else
+                                                    <img src="{{ asset('storage/passport_photo/' . $biodata->User->Documents->first()->passport_photo) }}" width="40%" alt="passport_photo">
+                                                @endif
                                                 <br>
                                                 <a href="{{ asset('storage/passport_photo/' . $biodata->User->Documents->first()->passport_photo) }}" class="btn btn-primary text-white w-40 btn-sm mt-2" download>Unduh</a>
                                                 <br>
@@ -133,7 +145,11 @@
                                         <div class="container">
                                             <div class="form-group">
                                                 <label class="font-weight-bold">Foto Sertifikat Vaksin</label>
-                                                <img src="{{ asset('storage/vaccine_certificates/' . $biodata->User->Documents->first()->vaccine_certificate) }}" width="40%" alt="vaccine_certificate">
+                                                @if ($biodata->User->Documents->first()->vaccine_certificate == null)
+                                                    <small class="text-danger">Foto Sertifikat Vaksin belum di unggah!</small>
+                                                @else
+                                                    <img src="{{ asset('storage/vaccine_certificates/' . $biodata->User->Documents->first()->vaccine_certificate) }}" width="40%" alt="vaccine_certificate">
+                                                @endif
                                                 <br>
                                                 <a href="{{ asset('storage/vaccine_certificates/' . $biodata->User->Documents->first()->vaccine_certificate) }}" class="btn btn-primary text-white w-40 btn-sm mt-2" download>Unduh</a>
                                                 <br>
@@ -152,7 +168,11 @@
                                         <div class="container">
                                             <div class="form-group">
                                                 <label class="font-weight-bold">Foto Surat Keterangan Sehat</label>
-                                                <img src="{{ asset('storage/health_certificates/' . $biodata->User->Documents->first()->health_certificate) }}" width="40%" alt="health_certificate">
+                                                @if ($biodata->User->Documents->first()->health_certificate == null)
+                                                    <small class="text-danger">Foto Surat Keterangan Sehat belum di unggah!</small>
+                                                @else
+                                                    <img src="{{ asset('storage/health_certificates/' . $biodata->User->Documents->first()->health_certificate) }}" width="40%" alt="health_certificate">
+                                                @endif
                                                 <br>
                                                 <a href="{{ asset('storage/health_certificates/' . $biodata->User->Documents->first()->health_certificate) }}" class="btn btn-primary text-white w-40 btn-sm mt-2" download>Unduh</a>
                                                 <br>
@@ -171,7 +191,11 @@
                                         <div class="container">
                                             <div class="form-group">
                                                 <label class="font-weight-bold">Foto Paspor</label>
-                                                <img src="{{ asset('storage/passports/' . $biodata->User->Documents->first()->passport) }}" width="40%" alt="passport">
+                                                @if ($biodata->User->Documents->first()->passport == null)
+                                                    <small class="text-danger">Foto Paspor belum di unggah!</small>
+                                                @else
+                                                    <img src="{{ asset('storage/passports/' . $biodata->User->Documents->first()->passport) }}" width="40%" alt="passport">
+                                                @endif
                                                 <br>
                                                 <a href="{{ asset('storage/passports/' . $biodata->User->Documents->first()->passport) }}" class="btn btn-primary text-white w-40 btn-sm mt-2" download>Unduh</a>
                                                 <br>
