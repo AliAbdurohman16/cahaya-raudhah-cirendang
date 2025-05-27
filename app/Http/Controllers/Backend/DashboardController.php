@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Biodata;
 use App\Models\Package;
 use App\Models\Transaction;
+use App\Models\Document;
 use Carbon\Carbon;
 
 class DashboardController extends Controller
@@ -23,7 +24,10 @@ class DashboardController extends Controller
                 return redirect('biodata');
             }
 
-            $data['transactions'] = Transaction::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
+            $data = [
+                'transactions' => Transaction::where('user_id', $user->id)->orderBy('created_at', 'desc')->get(),
+                'document' => Document::where('user_id', Auth::id())->first(),
+            ];
         } else {
             $chartMonthly = Transaction::selectRaw('MONTH(created_at) as month, SUM(total) as total')
                             ->whereYear('created_at', Carbon::now()->year)

@@ -12,6 +12,32 @@
 @section('content')
 <div class="db-info-wrap">
     @if (Auth::user()->hasRole('user'))
+    @php
+        $missing = [];
+
+        if (!$document->kk) $missing[] = 'Foto Kartu Keluarga';
+        if (!$document->ktp) $missing[] = 'Foto KTP';
+        if (!$document->passport_photo) $missing[] = 'Pas Foto';
+        if (!$document->vaccine_certificate) $missing[] = 'Foto Sertifikat Vaksin';
+        if (!$document->health_certificate) $missing[] = 'Foto Surat Keterangan Sehat';
+        if (!$document->passport) $missing[] = 'Foto Paspor';
+
+        $missingValidation = [];
+
+        if (!empty($document->kk) && $document->kk_validation_status === 'belum valid') $missingValidation[] = 'Foto Kartu Keluarga';
+        if (!empty($document->ktp) && $document->ktp_validation_status === 'belum valid') $missingValidation[] = 'Foto KTP';
+        if (!empty($document->passport_photo) && $document->passport_photo_validation_status === 'belum valid') $missingValidation[] = 'Pas Foto';
+        if (!empty($document->vaccine_certificate) && $document->vaccine_certificate_validation_status === 'belum valid') $missingValidation[] = 'Foto Sertifikat Vaksin';
+        if (!empty($document->health_certificate) && $document->health_certificate_validation_status === 'belum valid') $missingValidation[] = 'Foto Surat Keterangan Sehat';
+        if (!empty($document->passport) && $document->passport_validation_status === 'belum valid') $missingValidation[] = 'Foto Paspor';
+    @endphp
+
+    @if (count($missing) > 0)
+        <div class="alert alert-warning" role="alert">
+            Silakan lengkapi dokumen anda di menu "<a href="{{ route('document.index') }}" class="text-gold fw-bold">Dokumen</a>".
+        </div>
+    @endif
+
     <div class="row">
         <div class="col-lg-12">
             <div class="dashboard-box">
