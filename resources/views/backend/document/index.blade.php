@@ -37,7 +37,7 @@
                         Silakan lengkapi dokumen berikut:
                         <ul class="mb-0">
                             @foreach ($missing as $item)
-                                <li>{{ $item }}</li>
+                                <li>- {{ $item }}</li>
                             @endforeach
                         </ul>
                     </div>
@@ -47,7 +47,7 @@
                     <div class="alert alert-info" role="alert">
                         <ul class="mb-0">
                             @foreach ($missingValidation as $item)
-                                <li>{{ $item }} - Belum divalidasi oleh admin</li>
+                                <li>- {{ $item }} - Belum divalidasi oleh admin</li>
                             @endforeach
                         </ul>
                     </div>
