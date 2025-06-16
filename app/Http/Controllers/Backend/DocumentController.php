@@ -48,6 +48,9 @@ class DocumentController extends Controller
             // Hitung Cr dan Ss
             $stats = $this->calculateCompressionStats($kkBeforeCompressedBytes, $kkCompressed['sizeKompresiBytes']);
 
+            // Hitung waktu transfer dalam milidetik
+            $data['kk_transfer_time_ms'] = $this->calculateTransferTime($kkBeforeCompressedBytes);
+
             $data['kk'] = $kkCompressed['filename'];
             $data['compressed_kk_size'] = $kkCompressed['sizeKompresi'];
             $data['original_kk_size'] = $kkBeforeCompressed;
@@ -71,6 +74,9 @@ class DocumentController extends Controller
 
             // Hitung Cr dan Ss
             $stats = $this->calculateCompressionStats($ktpBeforeCompressedBytes, $ktpCompressed['sizeKompresiBytes']);
+
+            // Hitung waktu transfer dalam milidetik
+            $data['ktp_transfer_time_ms'] = $this->calculateTransferTime($ktpBeforeCompressedBytes);
         
             $data['ktp'] = $ktpCompressed['filename'];
             $data['compressed_ktp_size'] = $ktpCompressed['sizeKompresi'];
@@ -95,6 +101,9 @@ class DocumentController extends Controller
 
             // Hitung Cr dan Ss
             $stats = $this->calculateCompressionStats($passportPhotoBeforeCompressedBytes, $passportPhotoCompressed['sizeKompresiBytes']);
+
+            // Hitung waktu transfer dalam milidetik
+            $data['passport_photo_transfer_time_ms'] = $this->calculateTransferTime($passportPhotoBeforeCompressedBytes);
         
             $data['passport_photo'] = $passportPhotoCompressed['filename'];
             $data['compressed_passport_photo_size'] = $passportPhotoCompressed['sizeKompresi'];
@@ -119,7 +128,11 @@ class DocumentController extends Controller
 
             // Hitung Cr dan Ss
             $stats = $this->calculateCompressionStats($vaccineCertificateBeforeCompressedBytes, $vaccineCertificateCompressed['sizeKompresiBytes']);
-        
+
+            // Hitung waktu transfer dalam milidetik
+            $data['vaccine_certificate_transfer_time_ms'] = $this->calculateTransferTime($vaccineCertificateBeforeCompressedBytes);
+
+
             $data['vaccine_certificate'] = $vaccineCertificateCompressed['filename'];
             $data['compressed_vaccine_certificate_size'] = $vaccineCertificateCompressed['sizeKompresi'];
             $data['original_vaccine_certificate_size'] = $vaccineCertificateBeforeCompressed;
@@ -143,6 +156,9 @@ class DocumentController extends Controller
 
             // Hitung Cr dan Ss
             $stats = $this->calculateCompressionStats($healthCertificateBeforeCompressedBytes, $healthCertificateCompressed['sizeKompresiBytes']);
+
+            // Hitung waktu transfer dalam milidetik
+            $data['health_certificate_transfer_time_ms'] = $this->calculateTransferTime($healthCertificateBeforeCompressedBytes);
         
             $data['health_certificate'] = $healthCertificateCompressed['filename'];
             $data['compressed_health_certificate_size'] = $healthCertificateCompressed['sizeKompresi'];
@@ -167,6 +183,9 @@ class DocumentController extends Controller
 
             // Hitung Cr dan Ss
             $stats = $this->calculateCompressionStats($passportBeforeCompressedBytes, $passportCompressed['sizeKompresiBytes']);
+
+            // Hitung waktu transfer dalam milidetik
+            $data['passport_transfer_time_ms'] = $this->calculateTransferTime($passportBeforeCompressedBytes);
         
             $data['passport'] = $passportCompressed['filename'];
             $data['compressed_passport_size'] = $passportCompressed['sizeKompresi'];
@@ -239,4 +258,15 @@ class DocumentController extends Controller
         ];
     }
 
+    public function calculateTransferTime($fileSizeBytes, $bandwidth = 128000)
+    {
+        if ($bandwidth <= 0) {
+            return null;
+        }
+
+        $fileSizeBits = $fileSizeBytes * 8; // konversi byte ke bit
+        $timeInSeconds = $fileSizeBits / $bandwidth;
+
+        return round($timeInSeconds, 2); // hasil dalam milidetik
+    }
 }

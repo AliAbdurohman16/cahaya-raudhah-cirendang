@@ -67,6 +67,7 @@
                                         <small>Ukuran Kompresi : {{ $document->compressed_kk_size ?? '0 KB' }}</small> <br>
                                         <small>Compression Ratio : {{ $document->kk_compression_ratio ?? '0%' }}</small> <br>
                                         <small>Space Saving : {{ $document->kk_space_saving ?? '0%' }}</small> <br>
+                                        <small>Waktu Kompresi : {{ $document->kk_transfer_time_ms ?? '0' }} ms</small> <br>
                                     </div>
                                 </div>
                                 <div class="col-sm-8">
@@ -92,6 +93,7 @@
                                         <small>Ukuran Kompresi : {{ $document->compressed_ktp_size ?? '0 KB' }}</small> <br>
                                         <small>Compression Ratio : {{ $document->ktp_compression_ratio ?? '0%' }}</small> <br>
                                         <small>Space Saving : {{ $document->ktp_space_saving ?? '0%' }}</small> <br>
+                                        <small>Waktu Kompresi : {{ $document->ktp_transfer_time_ms ?? '0' }} ms</small> <br>
                                     </div>
                                 </div>
                                 <div class="col-sm-8">
@@ -117,6 +119,7 @@
                                         <small>Ukuran Kompresi : {{ $document->compressed_passport_photo_size ?? '0 KB' }}</small> <br>
                                         <small>Compression Ratio : {{ $document->passport_photo_compression_ratio ?? '0%' }}</small> <br>
                                         <small>Space Saving : {{ $document->passport_photo_space_saving ?? '0%' }}</small> <br>
+                                        <small>Waktu Kompresi : {{ $document->passport_photo_transfer_time_ms ?? '0' }} ms</small> <br>
                                     </div>
                                 </div>
                                 <div class="col-sm-8">
@@ -142,6 +145,7 @@
                                         <small>Ukuran Kompresi : {{ $document->compressed_vaccine_certificate_size ?? '0 KB' }}</small> <br>
                                         <small>Compression Ratio : {{ $document->vaccine_certificate_compression_ratio ?? '0%' }}</small> <br>
                                         <small>Space Saving : {{ $document->vaccine_certificate_space_saving ?? '0%' }}</small> <br>
+                                        <small>Waktu Kompresi : {{ $document->vaccine_certificate_transfer_time_ms ?? '0' }} ms</small> <br>
                                     </div>
                                 </div>
                                 <div class="col-sm-8">
@@ -167,6 +171,7 @@
                                         <small>Ukuran Kompresi : {{ $document->compressed_health_certificate_size ?? '0 KB' }}</small> <br>
                                         <small>Compression Ratio : {{ $document->health_certificate_compression_ratio ?? '0%' }}</small> <br>
                                         <small>Space Saving : {{ $document->health_certificate_space_saving ?? '0%' }}</small> <br>
+                                        <small>Waktu Kompresi : {{ $document->health_certificate_transfer_time_ms ?? '0' }} ms</small> <br>
                                     </div>
                                 </div>
                                 <div class="col-sm-8">
@@ -192,6 +197,7 @@
                                         <small>Ukuran Kompresi : {{ $document->compressed_passport_size ?? '0 KB' }}</small> <br>
                                         <small>Compression Ratio : {{ $document->passport_compression_ratio ?? '0%' }}</small> <br>
                                         <small>Space Saving : {{ $document->passport_space_saving ?? '0%' }}</small> <br>
+                                        <small>Waktu Kompresi : {{ $document->passport_transfer_time_ms ?? '0' }} ms</small> <br>
                                     </div>
                                 </div>
                                 <div class="col-sm-8">
